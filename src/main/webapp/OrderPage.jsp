@@ -1,5 +1,6 @@
 <%@ page import="com.khatkevich.People" %>
-<%@ page import="com.khatkevich.DataBase" %><%--
+<%@ page import="com.khatkevich.DataBase" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: TaBletKa97
   Date: 23.11.2021
@@ -20,25 +21,27 @@
             out.print("ERROR");
         }
     %>
-    <table>
-        <tr>
-            <td align="center", valign="top">
-                <h1> <%="Dear "+ client.getName() + ",your order:"%></h1>
-                <br>
-                <%
-                    DataBase dataBase = DataBase.getDatabase();
-                    String[] parameter = request.getParameterValues("goods[]");
-                    double summ = 0.0;
-                    for(int i = 0; i < parameter.length; i++) {
-                        int j = i + 1;
-                        double price = (double) dataBase.getGoods().get(parameter[i]);
-                        out.println("<p>"+ j +")"+parameter[i]+" "+ price +"</p>");
-                        summ += price;
-                    }
-                    out.print("<p>Total: " + summ +"</p>");
-                %>
-            </td>
-        </tr>
-    </table>
+    <div>
+        <table>
+            <tr>
+                <td align="center", valign="top">
+                    <h1> <%="Dear "+ client.getName() + ",your order:"%></h1>
+                    <br>
+                    <%
+                        DataBase dataBase = DataBase.getDatabase();
+                        ArrayList<String> parameter = client.getOrder();
+                        double summ = 0.0;
+                        for(int i = 0; i < parameter.size(); i++) {
+                            int j = i + 1;
+                            double price = (double) dataBase.getGoods().get(parameter.get(i));
+                            out.println("<p>"+ j +")"+parameter.get(i)+" "+ price +"</p>");
+                            summ += price;
+                        }
+                        out.print("<p>Total: " + summ +"</p>");
+                    %>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

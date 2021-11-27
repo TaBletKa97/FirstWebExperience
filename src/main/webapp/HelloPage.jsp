@@ -13,10 +13,10 @@
 <body>
     <div>
         <h1 align="center">Welcome to Online Shop</h1>
-        <form method="post" action="/MainShop.jsp", align="center">
+        <form method="post" action="/auth", align="center">
             <input name="name" type="text", align="center", border="2", placeholder="Enter your name">
             <br>
-            <p><input type="checkbox" name="agree" value="I agree with the terms of service"> 1417</p>
+            <p><input type="checkbox" name="agree" value= "true" > I agree with the terms of service</p>
             <input type="submit", value="Enter", align="center">
         </form>
     </div>

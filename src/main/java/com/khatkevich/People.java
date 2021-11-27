@@ -6,13 +6,14 @@ public class People {
     private static long idForAll = 0;
     private Long id;
     private String name;
-    private ArrayList order;
+    private ArrayList<String> order;
+    private boolean agreement;
 
     public People(String name) {
         idForAll++;
         id = idForAll;
         this.name = name;
-        order = new ArrayList();
+        order = new ArrayList<>();
         DataBase dataBase = DataBase.getDatabase();
         dataBase.getPeoples().put(id, this);
     }
@@ -28,4 +29,13 @@ public class People {
     public ArrayList getOrder() {
         return order;
     }
+
+    public boolean isAgreement() {
+        return agreement;
+    }
+
+    public void setAgreement(boolean agreement) {
+        this.agreement = agreement;
+    }
+
 }
