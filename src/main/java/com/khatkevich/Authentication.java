@@ -25,7 +25,8 @@ public class Authentication extends HttpServlet {
         client.setAgreement(agreement);
         HttpSession httpSession = req.getSession();
         httpSession.setAttribute("client", client);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/MainShop.jsp");
-        dispatcher.forward(req, resp);
+        resp.sendRedirect("/com/khatkevich/protected/MainShop.jsp");
+//        RequestDispatcher dispatcher = req.getRequestDispatcher("/com/khatkevich/protected/MainShop.jsp");
+//        dispatcher.forward(req, resp);
     }
 }

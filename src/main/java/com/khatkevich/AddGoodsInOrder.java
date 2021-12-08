@@ -21,7 +21,6 @@ public class AddGoodsInOrder extends HttpServlet {
         String item = request.getParameter("item");
         System.out.println(item);
         client.getOrder().add(item);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/MainShop.jsp");
-        dispatcher.forward(request , response);
+        response.sendRedirect("/com/khatkevich/protected/MainShop.jsp");
     }
 }

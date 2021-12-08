@@ -3,4 +3,32 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/webapp_4_0.xsd"
          version="4.0">
+
+
+    <!-- Filter for auth -->
+    <filter>
+      <filter-name>AuthFilter</filter-name>
+      <filter-class>com.khatkevich.Filter</filter-class>
+    </filter>
+
+    <filter-mapping>
+      <filter-name>AuthFilter</filter-name>
+      <url-pattern>/com/khatkevich/protected/*</url-pattern>
+    </filter-mapping>
+
+<!--    <error-page>-->
+<!--        <error-code>404</error-code>-->
+<!--        <location>/com/khatkevich/ErrorPage.jsp</location>-->
+<!--    </error-page>-->
+
+    <servlet>
+        <servlet-name>hello</servlet-name>
+        <jsp-file>/com/khatkevich/HelloPage.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
 </web-app>
